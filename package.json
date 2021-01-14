@@ -1,0 +1,50 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "jest": {
+    "setupTestFrameworkScriptFile": "./tests/setup.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js --ignore tests",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "heroku-postbuild": "npm run build",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.310.0",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.8",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.17.2",
+    "circular-json": "^0.5.9",
+    "concurrently": "^3.5.0",
+    "cookie-session": "^2.0.0-beta.2",
+    "dotenv": "^6.2.0",
+    "express": "^4.15.3",
+    "jest": "^22.1.4",
+    "jsonp": "^0.2.1",
+    "jsonwebtoken": "^8.4.0",
+    "migrate-mongoose": "^3.2.2",
+    "mongoose": "^5.11.8",
+    "mongoose-role": "^3.0.0",
+    "multer": "^1.4.1",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-google-oauth20": "^1.0.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "path-parser": "^2.0.2",
+    "puppeteer": "^1.13.0",
+    "redis": "^2.8.0",
+    "socket.io": "^2.2.0",
+    "twilio": "^3.28.0",
+    "uuid": "^3.3.2"
+  }
+}
