@@ -15,6 +15,18 @@ Squadrone is an aerial drone-based telepresence platform that supports remote co
       ├── components              # Main React components of the application
       └── reducers                # Redux reducers 
 ```
+**Squadrone's database has following collections (defined as models in Mongoose):**  
+* Drone: 
+> the drone model has a schema that holds the drone's information including its model name, model SID, status, etc.
+* Location: 
+> the location model has a schema that holds information about the points of interests with their location over which there can be one or more drones flying
+* Flight: 
+> the flight model has a schema that holds information about the flight that gets created when remote users connect to the drone. flight information includes status, the drone information for the flight, passengers information which are the remote users information and the current pilot of the drone in the flight.
+* Request: 
+> the request model has a schema that holds information for all the requests throughout the application including the friend requests between the application users
+* User: 
+> the user model has a schema that holds informaiton of users who signup in Squadrone and want to use the services
+
 # Prerequisites
 * **Packages**
   > Before running the project, you'll need to have the following packages installed:
@@ -47,9 +59,9 @@ node index.js
 ```
 **D.** Set up TwiML App Voice REQUEST URL. To do so you can go to your TwiML App settings and add Squadrone's voice API which is a `POST` request to `/api/voice`.   
 
-You need to have a public URL to your localhost with a secure tunnel enable TwiML to send the request to Squadrone's running server on localhost 5000. To do so, you can use ngrok. Following is a picture of how the related setting should look like in TwiML App setting:
+You need to have a public URL to your localhost with a secure tunnel to enable TwiML to send the request to Squadrone's running server on localhost 5000. To do so, you can use ngrok. Following is a picture of how the related setting should look like in TwiML App setting:
 
 <img width="1311" alt="Screen Shot 2021-04-09 at 1 07 30 PM" src="https://user-images.githubusercontent.com/76855437/114216647-db9f4580-996f-11eb-88c1-82265f715958.png">
 
-
+**E.** Add some initial data to Squadrone's database so you can test the client side. 
 # API documentation
