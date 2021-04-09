@@ -59,6 +59,7 @@ export const attendFlight = (droneId) => async dispatch => {
         const res = await axios.post('/api/flights/attend', {
             droneId
         },getConfig());
+        history.push(`/flights/${res.data._id}`);
         dispatch(attendFlightSuccess(res.data));
     } catch (err) {
         dispatch(attendFlightFailure())

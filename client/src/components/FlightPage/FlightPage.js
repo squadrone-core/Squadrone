@@ -162,12 +162,14 @@ class FlightPage extends Component {
         return snd;
     };
     componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
+        console.log(this.props);
+
         if(nextProps.flight && nextProps.flight.location !== this.props.flight.location) {
             const flightLocationLat = nextProps.flight.location.geometry.coordinates[1];
             const flightLocationLng = nextProps.flight.location.geometry.coordinates[0];
             this.props.locationsActions.getWeather(flightLocationLat,flightLocationLng);
         }
-        console.log(nextProps);
         if(nextProps.weather && nextProps.weather.description && nextProps.weather.description !== this.props.weather.description) {
             console.log(nextProps.weather);
             if(nextProps.flight.location.type === "nature") {

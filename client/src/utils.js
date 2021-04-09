@@ -14,18 +14,16 @@ export const getConfig = () => {
     }
     return config
 };
+
 export const getFlytLiveConfig = () => {
     let config = {
-        headers: { 'Authorization': 'Token d528e637b79f8cb14fb075ed6acf21835d91bca2', VehicleID: 'UZsRL7nw' }
+        headers: { 'Authorization': 'REPLACE AUTHORIZATION TOKEN', VehicleID: 'REPLACE VEHICLE ID' }
     };
     return config
 };
 
-const restPath='https://dev.flytbase.com/rest';
-const wsPath='wss://dev.flytbase.com/rest';
 const namespace=localStorage.getItem("namespace");
-const token='Token d528e637b79f8cb14fb075ed6acf21835d91bca2';
-const auth=false;
+
 export function socketCallback(ros){
 
     const listenerBatteryStatus = new ROSLIB.Topic({

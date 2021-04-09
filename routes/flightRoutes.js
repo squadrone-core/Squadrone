@@ -25,7 +25,7 @@ module.exports = app => {
         }
         try {
             await flight.save();
-            await Drone.findOneAndUpdate({_id: drone}, {status: droneStatus});
+            await Drone.findOneAndUpdate({_id: drone}, {status: droneStatus, pilot: passengers[0] });
             res.send(flight)
         } catch (err) {
             res.send(400, err);
@@ -34,6 +34,7 @@ module.exports = app => {
     app.post('/api/flights/:id/change/control', requireLogin, async (req, res) => {
         try {
             const flight = await Flight.findOneAndUpdate({_id: req.params.id}, {hasControl: req.user._id}, {new: true});
+            await Drone.findOneAndUpdate({_id: flight.drone}, {pilot: req.user._id}, {new: true});
             res.send(flight)
         } catch (err) {
             res.send(400, err);
@@ -99,7 +100,7 @@ module.exports = app => {
     });
     app.post('/api/flights/attend',requireLogin, async (req,res)=>{
 
-        const flight = await Flight.findOneAndUpdate({ drone: req.body.droneId, status: "STARTED" }, { '$push': { passengers: req.user._id } });
+        const flight = await Flight.findOneAndUpdate({ drone: req.body.droneId }, { '$push': { passengers: req.user._id } });
         res.send(flight);
 
     });

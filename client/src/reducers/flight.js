@@ -16,7 +16,7 @@ export default function(state = {...initialState}, action) {
         case types.ATTEND_FLIGHT_REQUEST:
             return { ...state, isFetching: true };
         case types.ATTEND_FLIGHT_SUCCESS:
-            return { ...state, flight: action.payload };
+            return { ...state };
         case types.ATTEND_FLIGHT_FAILURE:
             return { ...state, isFetching: false };
         case types.GET_FLIGHT_REQUEST:

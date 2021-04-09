@@ -16,19 +16,18 @@ const mongoURI = keys.mongoURI;
 const options = {
    keepAlive: true,
    keepAliveInitialDelay: 300000,
-   useMongoClient: true,
    useNewUrlParser: true,
 };
 
-try {
-    mongoose.connect(mongoURI, options).then(response => {
-        console.log("response")
-        console.log(response)
-    });
-}catch (err) {
-    console.log("err!!!")
-    console.log(err)
+const connectToDB = async ()=> {
+    try {
+        await mongoose.connect(mongoURI, options)
+    }catch (err) {
+        console.log("error connecting to DB")
+    }
 }
+
+connectToDB().then()
 
 const app = express();
 
