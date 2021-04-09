@@ -27,4 +27,29 @@ Squadrone is an aerial drone-based telepresence platform that supports remote co
   * To connect the software to your drone, Sign up in [FlytBase](https://flytbase.com/flytcloud/) and add your drone to FlytCloud.  In the next section you can see how to use the credentials of your drone in FlytBase in the project.  
   Squadrone's web application will then connect to the drone through FlytBase to enable control and collaborative remote services to work while the drone is flying.
 # Running the project
+**Procedure**: 
+
+**A.** Add your credential values as environment variables to the `.env` file in the root directory. It should look like the following:
+```
+MONGO_URI=mongodb://127.0.0.1:27017/[REPLACE WITH PREFERRED DATABASE NAME]
+TWILIO_SID=[REPLACE WITH YOUR TWILIO ACCOUNT SID]
+TWILIO_AUTH_TOKEN=[REPLACE WITH YOUR TWILIO ACCOUNT AUTH TOKEN]
+TWILIO_APP_SID=[REPLACE WITH YOUR TwiML APP SID]
+CALLER_ID=[REPLACE WITH YOUR TwiML CALLER ID]
+```
+**B.** Install packages by running the following npm command in the root directory.  
+``` 
+npm install
+```
+**C.** Run the server with following command in the root directory. By default the server will listen on port 5000, you can change this by adding your preferred port to PORT environment variable.  
+```
+node index.js
+```
+**D.** Set up TwiML App Voice REQUEST URL. To do so you can go to your TwiML App settings and add Squadrone's voice API which is a `POST` request to `/api/voice`.   
+
+You need to have a public URL to your localhost with a secure tunnel enable TwiML to send the request to Squadrone's running server on localhost 5000. To do so, you can use ngrok. Following is a picture of how the related setting should look like in TwiML App setting:
+
+<img width="1311" alt="Screen Shot 2021-04-09 at 1 07 30 PM" src="https://user-images.githubusercontent.com/76855437/114216647-db9f4580-996f-11eb-88c1-82265f715958.png">
+
+
 # API documentation
