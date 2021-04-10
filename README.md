@@ -63,5 +63,40 @@ You need to have a public URL to your localhost with a secure tunnel to enable T
 
 <img width="1311" alt="Screen Shot 2021-04-09 at 1 07 30 PM" src="https://user-images.githubusercontent.com/76855437/114216647-db9f4580-996f-11eb-88c1-82265f715958.png">
 
-**E.** Add some initial data to Squadrone's database so you can test the client side. 
+**E.** Add some initial data to Squadrone's database so you can test the client side. To do so, you need to follow the following steps: 
+  1. Add location points (points of interest that you want remote users to connect to).  
+    
+   > You need to send a `POST` request to the `/api/locations` API with the location information according to API documentation.
+  2. Register your drones in Squadrone. 
+    
+   > You need to send a `POST` request to the `/api/drones` API with the drone information according to API documentation.
+  3. Assign drones to each location point so they become available to fly by user's request to fly over that location.  
+    
+   > You need to send a `POST` request to the `api/locations/:locationId/addDrone` API with the id of the drone you've registered in 2. according to API documentation.
+
+
+**Client Side**
+
+**A.** Install packages by running the following npm command in the `client` folder.  
+``` 
+cd client
+npm install
+```
+
+**B.** Set your FlytCloud Authorization token in `utils.js` file under the path `client/src/`
+```
+line 20: 'REPLACE AUTHORIZATION TOKEN' > replace with your token
+```
+**C.** To start the project, run the following command in the `client` folder. 
+```
+npm start
+```
+> this will launch the interface on localhost 3000
+
+**D.** When the interface comes up, you need to signup to be able to use the services.   
+> To signup use the profile icon at the top right corner and signup.  
+* You will then get redirected to the interactive map where you can see markers over the locations you've created.  
+> You can initiate flight over them by clicking on the markers and customizing your flight options through the stepwise menu that appears.  
+* You can also add friends and send request to other users in the system to add them to your friends list.
+
 # API documentation
