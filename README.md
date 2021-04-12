@@ -100,3 +100,8 @@ npm start
 * You can also add friends and send request to other users in the system to add them to your friends list.
 
 # API documentation
+* [Authentication Service](https://github.com/squadrone-core/Squadrone/wiki/Auth-API-documentation)
+* [Drone Service](https://github.com/squadrone-core/Squadrone/wiki/Drone-API-documentation)
+* [Location Service](https://github.com/squadrone-core/Squadrone/wiki/Location-API-documentation)
+* [Flight Service](https://github.com/squadrone-core/Squadrone/wiki/Flight-API-documentation)
+* [Request Service](https://github.com/squadrone-core/Squadrone/wiki/Request-API-documentation)
