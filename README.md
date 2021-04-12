@@ -17,15 +17,15 @@ Squadrone is an aerial drone-based telepresence platform that supports remote co
 ```
 **Squadrone's database has following collections (defined as models in Mongoose):**  
 * Drone: 
-> the drone model has a schema that holds the drone's information including its model name, model SID, status, etc.
+> The drone model has a schema that holds the drone's information including its model name, model SID, status, etc.
 * Location: 
-> the location model has a schema that holds information about the points of interests with their location over which there can be one or more drones flying
+> The location model has a schema that holds information about the points of interest with their location over which there can be one or more drones flying
 * Flight: 
-> the flight model has a schema that holds information about the flight that gets created when remote users connect to the drone. flight information includes status, the drone information for the flight, passengers information which are the remote users information and the current pilot of the drone in the flight.
+> The flight model has a schema that holds information about the flight that gets created when remote users connect to the drone. flight information includes status, the drone information for the flight, passengers information which are the remote users' information and the current pilot of the drone in the flight.
 * Request: 
-> the request model has a schema that holds information for all the requests throughout the application including the friend requests between the application users
+> The request model has a schema that holds information for all the requests throughout the application including the flight and friend requests between the application users
 * User: 
-> the user model has a schema that holds informaiton of users who signup in Squadrone and want to use the services
+> The user model has a schema that holds informaton of users who signup in Squadrone and want to use the services
 
 # Prerequisites
 * **Packages**
@@ -66,13 +66,13 @@ You need to have a public URL to your localhost with a secure tunnel to enable T
 **E.** Add some initial data to Squadrone's database so you can test the client side. To do so, you need to follow the following steps: 
   1. Add location points (points of interest that you want remote users to connect to).  
     
-   > You need to send a `POST` request to the `/api/locations` API with the location information according to API documentation.
+   > You need to send a `POST` request to the `/api/locations` API with the location information according to [Location API documentation](https://github.com/squadrone-core/Squadrone/wiki/Location-API-documentation).
   2. Register your drones in Squadrone. 
     
-   > You need to send a `POST` request to the `/api/drones` API with the drone information according to API documentation.
-  3. Assign drones to each location point so they become available to fly by user's request to fly over that location.  
+   > You need to send a `POST` request to the `/api/drones` API with the drone information according to [Drone API documentation](https://github.com/squadrone-core/Squadrone/wiki/Drone-API-documentation).
+  3. Assign drones to each location point so they become available to fly by user's request to visit that location.  
     
-   > You need to send a `POST` request to the `api/locations/:locationId/addDrone` API with the id of the drone you've registered in 2. according to API documentation.
+   > You need to send a `POST` request to the `api/locations/:locationId/addDrone` API with the id of the drone you've registered in step 2. according to [Location API documentation](https://github.com/squadrone-core/Squadrone/wiki/Location-API-documentation).
 
 
 **Client Side**
@@ -95,7 +95,7 @@ npm start
 
 **D.** When the interface comes up, you need to signup to be able to use the services.   
 > To signup use the profile icon at the top right corner and signup.  
-* You will then get redirected to the interactive map where you can see markers over the locations you've created.  
+* You will then get redirected to the interactive map where you can see markers for the locations you've created.  
 > You can initiate flight over them by clicking on the markers and customizing your flight options through the stepwise menu that appears.  
 * You can also add friends and send request to other users in the system to add them to your friends list.
 
