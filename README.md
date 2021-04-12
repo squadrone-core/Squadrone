@@ -70,7 +70,10 @@ You need to have a public URL to your localhost with a secure tunnel to enable T
   2. Register your drones in Squadrone. 
     
    > You need to send a `POST` request to the `/api/drones` API with the drone information according to [Drone API documentation](https://github.com/squadrone-core/Squadrone/wiki/Drone-API-documentation).
-  3. Assign drones to each location point so they become available to fly by user's request to visit that location.  
+  3. Update the drone's VehicleID to the Vehicle ID of your drone in FlyCloud account. 
+    
+   > You need to send a `PUT` request to the `/api/drones/:id` API with the drone's VehicleID according to [Drone API documentation](https://github.com/squadrone-core/Squadrone/wiki/Drone-API-documentation).
+  4. Assign drones to each location point so they become available to fly by user's request to visit that location.  
     
    > You need to send a `POST` request to the `api/locations/:locationId/addDrone` API with the id of the drone you've registered in step 2. according to [Location API documentation](https://github.com/squadrone-core/Squadrone/wiki/Location-API-documentation).
 
