@@ -93,7 +93,6 @@ class DrawerComp extends React.Component {
         this.setState(state => ({ mobileOpen: !state.mobileOpen }));
     };
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
         if(nextProps.openDrawer) {
             this.handleDrawerToggle()
         }

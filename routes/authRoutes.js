@@ -6,11 +6,11 @@ module.exports = app => {
             if(err || !user){
                 const error = new Error(info.message);
                 // console.log(info);
-                return next(error);
+                return res.status(404).send({ success : false, message : info.message });
                 // return res.send({ success : false, message : info.message });
             }
             req.login(user, { session : false }, async (error) => {
-                if( error ) return next(error);
+                if( error ) res.status(404).send({ success : false, message : error.message });
                 //We don't want to store the sensitive information such as the
                 //user password in the token so we pick only the email and id
                 const body = { _id : user._id, email : user.email, role: user.role };
@@ -19,7 +19,7 @@ module.exports = app => {
                 //Send back the token to the user
                 return res.json({ token, user: body });
             });     } catch (error) {
-            return next(error);
+            return res.status(404).send({ success : false, message : error.message });
         }
         })(req, res, next);
     });

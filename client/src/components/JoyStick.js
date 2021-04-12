@@ -44,7 +44,7 @@ class JoyStick extends Component {
         // if (!haveEvents) {
         //     setInterval(this.scangamepads, 500);
         // }
-        this.props.joystickActions.getNameSpace();
+        this.props.joystickActions.getNameSpace(this.props.flight.drone.VehicleID);
         // window.requestAnimationFrame(this.update.bind(this))
 
     }

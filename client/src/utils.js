@@ -15,9 +15,9 @@ export const getConfig = () => {
     return config
 };
 
-export const getFlytLiveConfig = () => {
+export const getFlytLiveConfig = (vehicleId) => {
     let config = {
-        headers: { 'Authorization': 'REPLACE AUTHORIZATION TOKEN', VehicleID: 'REPLACE VEHICLE ID' }
+        headers: { 'Authorization': 'REPLACE AUTHORIZATION TOKEN', VehicleID: vehicleId }
     };
     return config
 };

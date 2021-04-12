@@ -37,7 +37,6 @@ module.exports = app => {
         if(id.match(/^[0-9a-fA-F]{24}$/)) {
             const request = await Request.findOneAndUpdate({_id: id}, {status: status});
             if(status === "accepted" && request.type === "friend") {
-                console.log(request);
                 await User.findOneAndUpdate({_id: request.from}, { '$push': { friends: request.to } }); //todo: fix all first objects of this query
             }
             if(status === "accepted" && request.type === "flight") {

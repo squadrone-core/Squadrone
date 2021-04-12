@@ -13,10 +13,10 @@ const getNameSpaceFailure = () => {
 const getNameSpaceSuccess = namespace => {
     return { type: types.GET_NAME_SPACE_SUCCESS, payload: namespace }
 };
-export const getNameSpace = () => async dispatch => {
+export const getNameSpace = (vehicleId) => async dispatch => {
     dispatch(getNameSpaceRequest());
     try {
-        const res = await axios.get('https://dev.flytbase.com/rest/ros/get_global_namespace',getFlytLiveConfig());
+        const res = await axios.get('https://dev.flytbase.com/rest/ros/get_global_namespace',getFlytLiveConfig(vehicleId));
         localStorage.setItem('namespace', res.data.param_info.param_value);
         dispatch(getNameSpaceSuccess(res.data.param_info.param_value));
     } catch (err) {

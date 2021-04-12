@@ -149,7 +149,6 @@ class FlightPageUI extends Component {
     };
     render() {
         const { classes, fullScreen, drone } = this.props;
-        console.log(this.props.flight);
         if(this.props.flight && this.props.flight.options && this.props.flight.options.voice) {
             return (
                 <div id="dialer">

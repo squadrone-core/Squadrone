@@ -28,7 +28,6 @@ class UserWorkReqs extends Component {
     };
     render() {
         const { workReqs, openDrawer } = this.props;
-        console.log(workReqs);
         return (
             <UserWorkReqsUI
                 workReqs={workReqs}

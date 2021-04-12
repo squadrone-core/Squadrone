@@ -117,11 +117,11 @@ const executeWayPointsFailure = () => {
 const executeWayPointsSuccess = data => {
     return { type: types.EXECUTE_WAY_POINTS_SUCCESS, payload: data }
 };
-export const executeWayPoints = () => async dispatch => {
+export const executeWayPoints = (VehicleID) => async dispatch => {
     dispatch(executeWayPointsRequest());
     try {
         const namespace = localStorage.getItem('namespace');
-        const res = await axios.get(`https://dev.flytbase.com/rest/ros/${namespace}/navigation/waypoint_execute`,getFlytLiveConfig());
+        const res = await axios.get(`https://dev.flytbase.com/rest/ros/${namespace}/navigation/waypoint_execute`,getFlytLiveConfig(VehicleID));
         dispatch(executeWayPointsSuccess(res.data));
     } catch (err) {
         dispatch(executeWayPointsFailure())

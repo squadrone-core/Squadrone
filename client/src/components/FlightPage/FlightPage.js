@@ -214,7 +214,6 @@ class FlightPage extends Component {
         }
 
         const { classes, fullScreen } = this.props;
-
         return (
             <div>
                 <Dialog
@@ -282,8 +281,7 @@ class FlightPage extends Component {
 
                     }}                        // defaults -> {}
                     onPlay={()=>{if(this.state.audio) this.state.audio.play();
-                    console.log(this.state.audio);
-                        this.props.flightActions.executeWayPoints();
+                        this.props.flightActions.executeWayPoints(drone.VehicleID);
                     }}                     // defaults -> noop
                     onPause={()=>{if(this.state.audio) this.state.audio.pause();}}
 

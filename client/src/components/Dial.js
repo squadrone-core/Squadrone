@@ -59,7 +59,6 @@ class DialerApp extends Component {
         // Fetch capability token from our Node.js server
         console.log(getConfig());
         axios.get('/api/token', getConfig()).then(function(data) {
-            console.log(data);
             Device.setup(data.data.token);
             Device.disconnect(function() {
                 self.setState({
@@ -69,7 +68,6 @@ class DialerApp extends Component {
             });
 
             Device.ready(function() {
-                console.log("ready");
                 self.setState({log: 'Connected'});
             });
 

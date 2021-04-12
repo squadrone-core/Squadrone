@@ -93,7 +93,6 @@ module.exports = app => {
             await page.type('input[type="password"]', 'EamxGluK');
             await page.click('button[type="submit"]');
             const t = await page.waitForSelector('.container .menu-heading');
-            console.log(t);
             // await browser.close();
 
     });
